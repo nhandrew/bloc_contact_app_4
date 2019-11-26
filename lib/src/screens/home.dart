@@ -2,13 +2,8 @@ import 'package:bloc_contact_tutorial/src/blocs/contact_provider.dart';
 import 'package:bloc_contact_tutorial/src/models/contact.dart';
 import 'package:bloc_contact_tutorial/src/screens/contact.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/semantics.dart';
 
-class HomePage extends StatefulWidget {
-  createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
+class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bloc = ContactsProvider.of(context);
@@ -36,15 +31,5 @@ class _HomePageState extends State<HomePage> {
         );
       },
     ));
-  }
-
-  @override
-  void initState() {
-    Future.delayed(Duration.zero, () async {
-      final bloc = ContactsProvider.of(context);
-      bloc.fetchContacts();
-    });
-
-    super.initState();
   }
 }
